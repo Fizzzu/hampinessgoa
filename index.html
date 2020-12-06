@@ -1,730 +1,847 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Hampiness</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap" rel="stylesheet">
-  <style>
-  body {
-    font: 400 15px Lato, sans-serif;
-    line-height: 1.8;
-    color: #818181;
-  }
-    h0{
-     font-family: 'Yeon Sung', cursive;
-    }
-  h2 {
-    font-size: 24px;
-    text-transform: uppercase;
-    color: #303030;
-    font-weight: 600;
-    margin-bottom: 30px;
-  }
-  h4 {
-    font-size: 19px;
-    line-height: 1.375em;
-    color: black;
-    font-weight: 400;
-    margin-bottom: 30px;
-  } 
-    a{
-      color:black
-    }
-   h5{
-     font-size: 23px;
-    line-height: 1.375em;
-    font-weight: 400;
-    font-style: bold,italic;
-    margin: 70px 0;
-    color: #ff6347;
-  }
-  h6{
-    font-size: 20px;
-    text-align: center;
-  }
-  .jumbotron {
-    background: linear-gradient(to bottom, #f4511e 20%,#ffffff 100%);
-    color: #fff;
-    text-shadow: 2px 2px 5px black ;
-    padding: 100px 25px;
-    font-family: Montserrat, sans-serif;
-  }
-  .container-fluid {
-    padding: 60px 50px;
-  }
-  .bg-grey {
-    background-color: #f6f6f6;
-  }
-  .logo-small {
-    color: #f4511e;
-    font-size: 50px;
-  }
-  .logo {
-    color: #f4511e;
-    font-size: 200px;
-  }
-  .thumbnail {
-    padding: 0 0 15px 0;
-    border: none;
-    border-radius: 0;
-  }
-  .thumbnail img {
-    width: 100%;
-    height: 100%;
-    margin-bottom: 10px;
-  }
-  .carousel-control.right, .carousel-control.left {
-    background-image: none;
-    color: #f4511e;
-  }
-  .carousel-indicators li {
-    border-color: #f4511e;
-  }
-  .carousel-indicators li.active {
-    background-color: #f4511e;
-  }
-  .item h4 {
-    font-size: 19px;
-    line-height: 1.375em;
-    font-weight: 400;
-    font-style: italic;
-    margin: 70px 0;
-  }
-  .item span {
-    font-style: normal;
-  }
-  .panel {
-    border: 1px solid #f4511e; 
-    border-radius:0 !important;
-    transition: box-shadow 0.5s;
-  }
-  .panel:hover {
-    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
-  }
-  .panel-footer .btn:hover {
-    border: 1px solid #f4511e;
-    background-color: #fff !important;
-    color: #f4511e;
-  }
-    .navbar-brand{
-    font: cursive;
-    size: 6px;
-  }
-  .panel-heading {
-    color: #fff !important;
-    background-color: #f4511e !important;
-    padding: 25px;
-    border-bottom: 1px solid transparent;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-  }
-  .panel-footer {
-    background-color: white !important;
-  }
-  .panel-footer h3 {
-    font-size: 32px;
-  }
-  .panel-footer h4 {
-    color: #aaa;
-    font-size: 14px;
-  }
-  .panel-footer .btn {
-    margin: 15px 0;
-    background-color: #ffe6cc;
-    border: 2px solid #ff8173;
-    color: #fff;
-  }
-  .navbar {
-    margin-bottom: 0;
-    background-color: #f4511e;
-    z-index: 9999;
-    border: 0;
-    font-size: 12px !important;
-    line-height: 1.42857143 !important;
-    letter-spacing: 4px;
-    border-radius: 0;
-    font-family: Montserrat, sans-serif;
-  }
-  .navbar li a, .navbar .navbar-brand {
-    color: #fff !important;
-  }
-  .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: #f4511e !important;
-    background-color: #fff !important;
-  }
-  .navbar-default .navbar-toggle {
-    border-color: transparent;
-    color: #fff !important;
-  }
-  .portfolio img:hover{
-    color: #f4511e !important;
-  }
-  footer .glyphicon {
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #f4511e;
-  }
-  .slideanim {visibility:hidden;}
-  .slide {
-    animation-name: slide;
-    -webkit-animation-name: slide;
-    animation-duration: 1s;
-    -webkit-animation-duration: 1s;
-    visibility: visible;
-  }
-  img {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  border-spacing: 6px;
-}
-  
-  @keyframes slide {
-    from {
-    margin-left: 100%;
-    width: 300%; 
-  }
-    
-    to {
-    margin-left: 0%;
-    width: 100%;
-  }
-  }
-  @-webkit-keyframes slide {
-    0% {
-      opacity: 0;
-      -webkit-transform: translateY(70%);
-    } 
-    100% {
-      opacity: 1;
-      -webkit-transform: translateY(0%);
-    }
-  }
-  @media screen and (max-width: 768px) {
-    .col-sm-4 {
-      text-align: center;
-      margin: 25px 0;
-    }
-    .btn-lg {
-      width: 100%;
-      margin-bottom: 35px;
-    }
-  }
-  @media screen and (max-width: 480px) {
-    .logo {
-      font-size: 150px;
-    }
-  }
-  </style>
-</head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <head>
+    <title>Hampiness</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font: 400 15px Lato, sans-serif;
+        line-height: 1.8;
+        color: #818181;
+      }
+      h0 {
+        font-family: 'Yeon Sung', cursive;
+      }
+      h2 {
+        font-size: 24px;
+        text-transform: uppercase;
+        color: #303030;
+        font-weight: 600;
+        margin-bottom: 30px;
+      }
+      h4 {
+        font-size: 19px;
+        line-height: 1.375em;
+        color: black;
+        font-weight: 400;
+        margin-bottom: 30px;
+      }
+      a {
+        color: black;
+      }
+      h5 {
+        font-size: 23px;
+        line-height: 1.375em;
+        font-weight: 400;
+        font-style: bold, italic;
+        margin: 70px 0;
+        color: #ff6347;
+      }
+      h6 {
+        font-size: 20px;
+        text-align: center;
+      }
+      .jumbotron {
+        background: linear-gradient(to bottom, #f4511e 20%, #ffffff 100%);
+        color: #fff;
+        text-shadow: 2px 2px 5px black;
+        padding: 100px 25px;
+        font-family: Montserrat, sans-serif;
+      }
+      .container-fluid {
+        padding: 60px 50px;
+      }
+      .bg-grey {
+        background-color: #f6f6f6;
+      }
+      .logo-small {
+        color: #f4511e;
+        font-size: 50px;
+      }
+      .logo {
+        color: #f4511e;
+        font-size: 200px;
+      }
+      .thumbnail {
+        padding: 0 0 15px 0;
+        border: none;
+        border-radius: 0;
+      }
+      .thumbnail img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+      }
+      .carousel-control.right,
+      .carousel-control.left {
+        background-image: none;
+        color: #f4511e;
+      }
+      .carousel-indicators li {
+        border-color: #f4511e;
+      }
+      .carousel-indicators li.active {
+        background-color: #f4511e;
+      }
+      .item h4 {
+        font-size: 19px;
+        line-height: 1.375em;
+        font-weight: 400;
+        font-style: italic;
+        margin: 70px 0;
+      }
+      .item span {
+        font-style: normal;
+      }
+      .panel {
+        border: 1px solid #f4511e;
+        border-radius: 0 !important;
+        transition: box-shadow 0.5s;
+      }
+      .panel:hover {
+        box-shadow: 5px 0px 40px rgba(0, 0, 0, 0.2);
+      }
+      .panel-footer .btn:hover {
+        border: 1px solid #f4511e;
+        background-color: #fff !important;
+        color: #f4511e;
+      }
+      .navbar-brand {
+        font: cursive;
+        size: 6px;
+      }
+      .panel-heading {
+        color: #fff !important;
+        background-color: #f4511e !important;
+        padding: 25px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      .panel-footer {
+        background-color: white !important;
+      }
+      .panel-footer h3 {
+        font-size: 32px;
+      }
+      .panel-footer h4 {
+        color: #aaa;
+        font-size: 14px;
+      }
+      .panel-footer .btn {
+        margin: 15px 0;
+        background-color: #ffe6cc;
+        border: 2px solid #ff8173;
+        color: #fff;
+      }
+      .navbar {
+        margin-bottom: 0;
+        background-color: #f4511e;
+        z-index: 9999;
+        border: 0;
+        font-size: 12px !important;
+        line-height: 1.42857143 !important;
+        letter-spacing: 4px;
+        border-radius: 0;
+        font-family: Montserrat, sans-serif;
+      }
+      .navbar li a,
+      .navbar .navbar-brand {
+        color: #fff !important;
+      }
+      .navbar-nav li a:hover,
+      .navbar-nav li.active a {
+        color: #f4511e !important;
+        background-color: #fff !important;
+      }
+      .navbar-default .navbar-toggle {
+        border-color: transparent;
+        color: #fff !important;
+      }
+      .portfolio img:hover {
+        color: #f4511e !important;
+      }
+      footer .glyphicon {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #f4511e;
+      }
+      .slideanim {
+        visibility: hidden;
+      }
+      .slide {
+        animation-name: slide;
+        -webkit-animation-name: slide;
+        animation-duration: 1s;
+        -webkit-animation-duration: 1s;
+        visibility: visible;
+      }
+      img {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        border-spacing: 6px;
+      }
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <h0>
-        <a class="navbar-brand" href="#myPage">By UzmAnziya</a></h0>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">ABOUT US</a></li>
-        <li><a href="#services">SERVICES</a></li>
-        <li><a href="#portfolio">PORTFOLIO</a></li>
-        <li><a href="#pricing">PRICING</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div class="jumbotron text-center">
-  <h1><font face="sans"> Hampiness</font></h1> 
-  <p>A Brand that will cater to all gifting needs!</p> 
-  
-</div>
-
-<!-- Container (About Section) -->
-<div id="about" class="container-fluid">
-  <div class="row">
-    <div class="col-sm-8">
-      <h2>About Us!</h2><br>
-      <h4>We, Anziya and Uzma introduce you to a brand that will cater to all your gifting needs!<br> Our gift hampers are sure to provide the happiest of moments to you and your loved ones.<br>Chocolate qualifies as the perfect gifting solution for any occasion – be it a festival, a wedding, a baby shower or simply celebrating life. 
-        
-      </h4>
-      <p><br>We, at Hampiness-ChocoFab present to you fresh, finely handcrafted, premium quality homemade chocolates and much more packed attractively to suit your occasion.<br>Customized gifting ideas are one of the most trending things that you can enjoy with us!<br>We offer an array of luxury handmade chocolates with exuberant taste, quality, art and texture.<br>Customer satisfaction is our driving force. </p>
-      
-      <br><button class="btn btn-default btn-lg">Get in Touch</button>
-    </div>
-    <div class="col-sm-4">
-      <span>
-        <img src="https://img.techpowerup.org/201117/img-20201117-wa0014.jpg" width="380" height="350" border-radius="4px" border="2px">
-      </span>
-    </div>
-  </div>
-</div>
-
-<div class="container-fluid bg-grey">
-  <div class="row">
-    <div class="col-sm-4">
-      <span>
-        <img src="https://img.techpowerup.org/201119/screenshot-55.png" width="350" height="350" border="2px">
-      </span>
-    </div>
-    <div class="col-sm-8">
-      <h2>Our Values</h2><br>
-
-      <h4><strong>MISSION:</strong>The joy of giving is equally important as the magic of receiving.<br>
-
-We see chocolate smiles on the faces of everyone who receives a delightful gift from Hampiness. <br>We love to witness relationships being built, repaired, and lovingly nurtured over our chocolates. </h4><br>
-
-
-
-      <p><strong>VISION:</strong> Hampiness takes pride in its customer value, quality, and originality.<br> We are dedicated to providing you with the world’s best artistic and unique edible gifting ideas, made with high-quality, fresh, and handmade chocolates.<br> We are committed to providing you with absolutely tasteful, personalized, and professional service every time.</p>
-
-
-    </div>
-  </div>
-</div>
-
-<!-- Container (Services Section) -->
-<div id="services" class="container-fluid text-center">
-  <h2>SERVICES</h2>
-  <h4><font face="cursive" size="4">What We Offer ?</font></h4>
-  <br>
-  <div class="row slideanim">
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-gift logo-small"></span>
-
-      <h4><a href="https://wa.link/mupmyb" color="black">Return gifts</a></h4>
-      
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-briefcase logo-small"></span>
-
-      <h4><a href="https://wa.link/dffdvh" color="black">Hampers</a></h4>
-      
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-heart logo-small"></span>
-
-      <h4><a color="black" href="https://wa.link/vg6rl2" color="black">Surprise Parties</a></h4>
-      
-    </div>
-  </div>
-  <br><br>
-  <div class="row slideanim">
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-edit logo-small"></span>
-
-      <h4><a href="https://wa.link/o5lhmf" color="black">Customised Products</a></h4>
-      
-    </div>
-    <div class="col-sm-4">
-      
-      <span class="glyphicon glyphicon-usd logo-small"></span>
-      <div id="budget-friendly">
-        <a href="#pricing">
-      <h4>Budget Friendly</h4>
-        </a>
-      </div>
-      
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-shopping-cart logo-small"></span>
-      <div id="budget-friendly">
-        <a href="#pricing">
-      <h4 >Assorted Chocolates</h4>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Container (Portfolio Section) -->
-<div id="portfolio" class="container-fluid text-center bg-grey">
-  <h2>Portfolio</h2><br>
-  <hr color="#fff" width="100%">
-  <h4><font face="cursive" size="4">Our Work</font></h4>
-  <hr color="#fff" width="100%">
-  <div class="row text-center slideanim">
-    <table align="center" cellspacing="20" cellpadding="15"  >
-                    
-                      <tr>
-                      
-                        <td>
-                           
-                            <img src="https://img.techpowerup.org/201117/choc19.png" height="250" width="300" />
-                          
-                        </td>
-                        
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201117/choc17.png" height="250" width="300" />
-                       
-                        </td>
-                    
-                        <td>
-                        
-                          <img src="https://img.techpowerup.org/201117/choc18.png" height="250" width="300" />
-                        
-                        </td>
-                    
-                      </tr>
-                      <tr>
-                       
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201113/choc3.jpg" height="250" width="300" />
-                       
-                        </td>
-                  
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201113/choc2.jpg" height="250" width="300" />
-                        
-                        </td>
-                        
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201113/choc1.jpg" height="250" width="300" />
-                        
-                        </td>
-                    </tr>
-                   
-                    <tr>
-                       
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201113/choc4.jpg" height="250" width="300" />
-                       
-                        </td>
-                  
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201113/choc5.jpg" height="250" width="300" />
-                        
-                        </td>
-                        
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201113/choc6.jpg" height="250" width="300" />
-                        
-                        </td>
-                   
-                    </tr>
-                    <tr>
-                       
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201117/choc8.png" height="250" width="300" />
-                       
-                        </td>
-                  
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201117/choc9.png" height="250" width="300" />
-                        
-                        </td>
-                        
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201117/choc7.png" height="250" width="300" />
-                        
-                        </td>
-                      </tr>
-                      <tr>
-                       
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201117/choc13.png" height="250" width="300" />
-                       
-                        </td>
-                  
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201117/choc14.png" height="250" width="300" />
-                        
-                        </td>
-                        
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201117/choc16.png" height="250" width="300" />
-                        
-                        </td>
-                    </tr>
-                    <tr>
-                       
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201117/choc10.png" height="250" width="300" />
-                       
-                        </td>
-                  
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201117/choc11.png" height="250" width="300" />
-                        
-                        </td>
-                        
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201117/choc25.png" height="250" width="300" />
-                        
-                        </td>
-                    </tr>
-                    <tr>
-                       
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201117/choc20.jpg" height="250" width="300" />
-                       
-                        </td>
-                  
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201117/choc21.png" height="250" width="300" />
-                        
-                        </td>
-                        
-                        <td>
-                          
-                          <img src="https://img.techpowerup.org/201117/choc22.png" height="250" width="300" />
-                        
-                        </td>
-                    </tr>
-               
-                    
-                    </table>
-  </div><br>
-  <hr color="#fff" width="100%">
-  <h2>What our customers say</h2>
-  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <h4>"awesome work..loved ur chocolate artwork..the best part is I got it on time..keep up the good work! "<br><span>Miss. Nazneen</span></h4>
-      </div>
-      <div class="item">
-        <h4>"Best home made chocolate with personal message on the wrapper,liked it a lot! i hope you both succeed!!"<br><span>Mr. Wilson</span></h4>
-      </div>
-      <div class="item">
-        <h4>"Chocolates were really Amazing!!"<br><span>Mr. Saud</span></h4>
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
-
-<!-- Container (Pricing Section) -->
-<div id="pricing" class="container-fluid">
-  <hr color="#fff" width="100%">
-  <div class="text-center">
-    <h2>Pricing</h2>
-    <br>
-    <h4>The Best Prices in town!</h4>
-  </div>
-  <div class="row slideanim">
-    <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>Chocolate Bars</h1>
-        </div>
-        <div class="panel-body">
-          <p><strong>₹320/-    </strong>
-            Plain milk chocolate Bars  
-            
-            <p><strong>₹350/-   </strong> Crispy Chocolate Bars
-          </p>
-
-          
-          <p><strong>₹350/-   </strong> Oreo Chocolate Bars  
-            
-
-          </p>
-          <p><strong>₹380/-   </strong> Nut Chocolate Bars
-          </p>
-          <p><strong>₹400/-   </strong> White Chocolate Bars
-          </p>
-
-          <p><strong>₹400/-   </strong> Cookie creme Chocolate Bars
-          </p>
-
-          <p><strong>₹380/-   </strong> Fruit & Nut Chocolate Bars
-          </p>
-          </p>
-          <p><strong>₹270/-   </strong>Premium Dark Chocolate Bars 
-            
-
-          </p>
-
-        </div>
-        <div class="panel-footer">
-          <h3>
-            
-
-
-          </h3>
-          <h4>
-
-
-
-          </h4>
-          <button class="btn btn-lg"><a href="https://wa.link/8kyoqs">Order</a></button>
-        </div>
-      </div>      
-    </div>     
-    <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>Bites</h1>
-        </div>
-        <div class="panel-body">
-          <p><strong>₹170/-</strong> 
-            Nut Choco Bites <strong>12</strong>
-
-          </p>
-          <p><strong>₹120/-   </strong> 
-            Premium Choco Bites <strong>12</strong>
-          </p>
-          <p><strong>₹120/-</strong> 
-            Premium dark Choco Bites 
-
-          </p>
-           <p><strong>₹170/-</strong> 
-            Premium white Choco Bites 
-
-          </p>
-          <p><strong>₹170/-</strong> 
-            Fruit & Nut Choco Bites 
-
-        </div>
-        <div class="panel-footer">
-          <h3>Pack of 12</h3>
-          <h4>
-
-
-          </h4>
-          <button class="btn btn-lg"><a href="https://wa.link/5h3656">Order</a></button>
-        </div>
-      </div>      
-    </div>       
-    <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>Lollies</h1>
-        </div>
-        <div class="panel-body">
-          <p><strong>₹220/- </strong> Chocolate Lollies
-          </p>
-          <p><strong>₹250/- </strong> Crunchy Chocolate Lollies
-          </p>
-       
-        </div>
-        <div class="panel-footer">
-          <h3>Pack of 12</h3>
-          <h4>
-
-
-          </h4>
-          <button class="btn btn-lg"><a href="https://wa.link/494z9e" >Order</a></button>
-        </div>
-      </div>      
-    </div>   
-  </div>
-</div>
-
-
-<!-- Container (Contact Section) -->
-
-<div id="contact" class="container-fluid bg-grey">
-  <h2 class="text-center">CONTACT</h2>
-
-
-  <div class="row">
-    <div class=" slideanim">
-    <h6>
-      <p>We'll get back to you within 24 hours.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span><a href="https://goo.gl/maps/mV1xSXNtRNHGWmibA"> Navelim, Goa</p></a>
-      <p><span class="glyphicon glyphicon-phone"></span><a href="tel:9657336434">9657336434</a></p>
-      <p><span class="fa fa-instagram"></i> <a href="https://www.instagram.com/hampiness_goa/">
-        hampiness_goa</a></i></p>
-      </span></p></p></div></div></div></p></div></div></div></div></div></a></div></div></nav></h6>
-  
-
-<footer class="container-fluid text-center">
-  <a href="#myPage" title="To Top">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a>
-  <p><font face="cursive" size="4.5" >Copyright &copy; Fiza Shaikh</font></p>
-</footer>
-
-<script>
-$(document).ready(function(){
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 900, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-  
-  $(window).scroll(function() {
-    $(".slideanim").each(function(){
-      var pos = $(this).offset().top;
-
-      var winTop = $(window).scrollTop();
-        if (pos < winTop + 600) {
-          $(this).addClass("slide");
+      @keyframes slide {
+        from {
+          margin-left: 100%;
+          width: 300%;
         }
-    });
-  });
-})
-</script>
 
-</body>
+        to {
+          margin-left: 0%;
+          width: 100%;
+        }
+      }
+      @-webkit-keyframes slide {
+        0% {
+          opacity: 0;
+          -webkit-transform: translateY(70%);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: translateY(0%);
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .col-sm-4 {
+          text-align: center;
+          margin: 25px 0;
+        }
+        .btn-lg {
+          width: 100%;
+          margin-bottom: 35px;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .logo {
+          font-size: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#myNavbar"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <h0> <a class="navbar-brand" href="#myPage">By UzmAnziya</a></h0>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about">ABOUT US</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#portfolio">PORTFOLIO</a></li>
+            <li><a href="#pricing">PRICING</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+      <h1><font face="sans"> Hampiness</font></h1>
+      <p>A Brand that will cater to all gifting needs!</p>
+    </div>
+
+    <!-- Container (About Section) -->
+    <div id="about" class="container-fluid">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2>About Us!</h2>
+          <br />
+          <h4>
+            We, Anziya and Uzma introduce you to a brand that will cater to all
+            your gifting needs!<br />
+            Our gift hampers are sure to provide the happiest of moments to you
+            and your loved ones.<br />Chocolate qualifies as the perfect gifting
+            solution for any occasion – be it a festival, a wedding, a baby
+            shower or simply celebrating life.
+          </h4>
+          <p>
+            <br />We, at Hampiness-ChocoFab present to you fresh, finely
+            handcrafted, premium quality homemade chocolates and much more
+            packed attractively to suit your occasion.<br />Customized gifting
+            ideas are one of the most trending things that you can enjoy with
+            us!<br />We offer an array of luxury handmade chocolates with
+            exuberant taste, quality, art and texture.<br />Customer
+            satisfaction is our driving force.
+          </p>
+
+          <br /><button class="btn btn-default btn-lg">Get in Touch</button>
+        </div>
+        <div class="col-sm-4">
+          <span>
+            <img
+              src="https://img.techpowerup.org/201117/img-20201117-wa0014.jpg"
+              width="380"
+              height="350"
+              border-radius="4px"
+              border="2px"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid bg-grey">
+      <div class="row">
+        <div class="col-sm-4">
+          <span>
+            <img
+              src="https://img.techpowerup.org/201119/screenshot-55.png"
+              width="350"
+              height="350"
+              border="2px"
+            />
+          </span>
+        </div>
+        <div class="col-sm-8">
+          <h2>Our Values</h2>
+          <br />
+
+          <h4>
+            <strong>MISSION:</strong>The joy of giving is equally important as
+            the magic of receiving.<br />
+
+            We see chocolate smiles on the faces of everyone who receives a
+            delightful gift from Hampiness. <br />We love to witness
+            relationships being built, repaired, and lovingly nurtured over our
+            chocolates.
+          </h4>
+          <br />
+
+          <p>
+            <strong>VISION:</strong> Hampiness takes pride in its customer
+            value, quality, and originality.<br />
+            We are dedicated to providing you with the world’s best artistic and
+            unique edible gifting ideas, made with high-quality, fresh, and
+            handmade chocolates.<br />
+            We are committed to providing you with absolutely tasteful,
+            personalized, and professional service every time.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container (Services Section) -->
+    <div id="services" class="container-fluid text-center">
+      <h2>SERVICES</h2>
+      <h4><font face="cursive" size="4">What We Offer ?</font></h4>
+      <br />
+      <div class="row slideanim">
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-gift logo-small"></span>
+
+          <h4>
+            <a href="https://wa.link/mupmyb" color="black">Return gifts</a>
+          </h4>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-briefcase logo-small"></span>
+
+          <h4><a href="https://wa.link/dffdvh" color="black">Hampers</a></h4>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-heart logo-small"></span>
+
+          <h4>
+            <a color="black" href="https://wa.link/vg6rl2" color="black"
+              >Surprise Parties</a
+            >
+          </h4>
+        </div>
+      </div>
+      <br /><br />
+      <div class="row slideanim">
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-edit logo-small"></span>
+
+          <h4>
+            <a href="https://wa.link/o5lhmf" color="black"
+              >Customised Products</a
+            >
+          </h4>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-usd logo-small"></span>
+          <div id="budget-friendly">
+            <a href="#pricing">
+              <h4>Budget Friendly</h4>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-shopping-cart logo-small"></span>
+          <div id="budget-friendly">
+            <a href="#pricing">
+              <h4>Assorted Chocolates</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container (Portfolio Section) -->
+    <div id="portfolio" class="container-fluid text-center bg-grey">
+      <h2>Portfolio</h2>
+      <br />
+      <hr color="#fff" width="100%" />
+      <h4><font face="cursive" size="4">Our Work</font></h4>
+      <hr color="#fff" width="100%" />
+      <div class="row text-center slideanim">
+        <table align="center" cellspacing="20" cellpadding="15">
+          <tr>
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc19.png"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc17.png"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc18.png"
+                height="250"
+                width="300"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="https://img.techpowerup.org/201113/choc3.jpg"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201113/choc2.jpg"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201113/choc1.jpg"
+                height="250"
+                width="300"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <img
+                src="https://img.techpowerup.org/201113/choc4.jpg"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201113/choc5.jpg"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201113/choc6.jpg"
+                height="250"
+                width="300"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc8.png"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc9.png"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc7.png"
+                height="250"
+                width="300"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc13.png"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc14.png"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc16.png"
+                height="250"
+                width="300"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc10.png"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc11.png"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc25.png"
+                height="250"
+                width="300"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc20.jpg"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc21.png"
+                height="250"
+                width="300"
+              />
+            </td>
+
+            <td>
+              <img
+                src="https://img.techpowerup.org/201117/choc22.png"
+                height="250"
+                width="300"
+              />
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br />
+      <hr color="#fff" width="100%" />
+      <h2>What our customers say</h2>
+      <div
+        id="myCarousel"
+        class="carousel slide text-center"
+        data-ride="carousel"
+      >
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <h4>
+              "awesome work..loved ur chocolate artwork..the best part is I got
+              it on time..keep up the good work! "<br /><span
+                >Miss. Nazneen</span
+              >
+            </h4>
+          </div>
+          <div class="item">
+            <h4>
+              "Best home made chocolate with personal message on the
+              wrapper,liked it a lot! i hope you both succeed!!"<br /><span
+                >Mr. Wilson</span
+              >
+            </h4>
+          </div>
+          <div class="item">
+            <h4>
+              "Chocolates were really Amazing!!"<br /><span>Mr. Saud</span>
+            </h4>
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a
+          class="left carousel-control"
+          href="#myCarousel"
+          role="button"
+          data-slide="prev"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-left"
+            aria-hidden="true"
+          ></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="right carousel-control"
+          href="#myCarousel"
+          role="button"
+          data-slide="next"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            aria-hidden="true"
+          ></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Container (Pricing Section) -->
+    <div id="pricing" class="container-fluid">
+      <hr color="#fff" width="100%" />
+      <div class="text-center">
+        <h2>Pricing</h2>
+        <br />
+        <h4>The Best Prices in town!</h4>
+      </div>
+      <div class="row slideanim">
+        <div class="col-sm-4 col-xs-12">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading">
+              <h1>Chocolate Bars</h1>
+            </div>
+            <div class="panel-body">
+              <p><strong>₹320/- </strong> Plain milk chocolate Bars</p>
+
+              <p><strong>₹350/- </strong> Crispy Chocolate Bars</p>
+
+              <p><strong>₹350/- </strong> Oreo Chocolate Bars</p>
+              <p><strong>₹380/- </strong> Nut Chocolate Bars</p>
+              <p><strong>₹400/- </strong> White Chocolate Bars</p>
+
+              <p><strong>₹400/- </strong> Cookie creme Chocolate Bars</p>
+
+              <p><strong>₹380/- </strong> Fruit & Nut Chocolate Bars</p>
+
+              <p><strong>₹270/- </strong>Premium Dark Chocolate Bars</p>
+            </div>
+            <div class="panel-footer">
+              <h3></h3>
+              <h4></h4>
+              <button class="btn btn-lg">
+                <a href="https://wa.link/8kyoqs">Order</a>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading">
+              <h1>Bites</h1>
+            </div>
+            <div class="panel-body">
+              <p><strong>₹170/-</strong> Nut Choco Bites <strong>12</strong></p>
+              <p>
+                <strong>₹120/- </strong> Premium Choco Bites <strong>12</strong>
+              </p>
+              <p>
+                <strong>₹120/-</strong>
+                Premium dark Choco Bites
+              </p>
+              <p>
+                <strong>₹170/-</strong>
+                Premium white Choco Bites
+              </p>
+              <p>
+                <strong>₹170/-</strong>
+                Fruit & Nut Choco Bites
+              </p>
+            </div>
+
+            <div class="panel-footer">
+              <h3>Pack of 12</h3>
+              <h4></h4>
+              <button class="btn btn-lg">
+                <a href="https://wa.link/5h3656">Order</a>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading">
+              <h1>Lollies</h1>
+            </div>
+            <div class="panel-body">
+              <p><strong>₹220/- </strong> Chocolate Lollies</p>
+              <p><strong>₹250/- </strong> Crunchy Chocolate Lollies</p>
+            </div>
+            <div class="panel-footer">
+              <h3>Pack of 12</h3>
+              <h4></h4>
+              <button class="btn btn-lg">
+                <a href="https://wa.link/494z9e">Order</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container (Contact Section) -->
+
+    <div id="contact" class="container-fluid bg-grey">
+      <h2 class="text-center">CONTACT</h2>
+
+      <div class="row">
+        <div class="slideanim">
+          <p>We'll get back to you within 24 hours.</p>
+          <p>
+            <a href="https://goo.gl/maps/mV1xSXNtRNHGWmibA"
+              ><span class="glyphicon glyphicon-map-marker"></span> Navelim,
+              Goa</a
+            >
+          </p>
+          <p>
+            <a href="tel:9657336434"
+              ><span class="glyphicon glyphicon-phone"></span>9657336434</a
+            >
+          </p>
+          <p>
+            <a href="https://www.instagram.com/hampiness_goa/">
+              <span class="fa fa-instagram">hampiness_goa</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- </p> -->
+    <!-- </div></div></div></div></div></a></div></div></nav></h6> -->
+
+    <footer class="container-fluid text-center">
+      <a href="#myPage" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+      <p><font face="cursive" size="4.5">Copyright &copy; Fiza Shaikh</font></p>
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== '') {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate(
+              {
+                scrollTop: $(hash).offset().top,
+              },
+              900,
+              function () {
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              }
+            );
+          } // End if
+        });
+
+        $(window).scroll(function () {
+          $('.slideanim').each(function () {
+            var pos = $(this).offset().top;
+
+            var winTop = $(window).scrollTop();
+            if (pos < winTop + 600) {
+              $(this).addClass('slide');
+            }
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
